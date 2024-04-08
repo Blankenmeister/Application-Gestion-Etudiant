@@ -1,7 +1,8 @@
 # Application-Gestion-Etudiant
 
 ### CONTEXTE  
-Simplon cherche à s'émanciper des solutions externes utilisées pour ses services. On vous a demandé de créer une application de gestion des élèves, qui permettra de gérer les absences et les retards.   
+Simplon cherche à s'émanciper des solutions externes utilisées pour ses services.  
+On vous a demandé de créer une application de gestion des élèves, qui permettra de gérer les absences et les retards.   
 Le cahier des charges et les maquettes vous sont fournies. L'application devra être fonctionnelle et mise en ligne en fin de brief, pour faire une démo à Simplon.
 
 
