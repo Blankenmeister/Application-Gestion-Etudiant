@@ -7,11 +7,11 @@
 // define('PREFIXE', 'ver_');
 
 
-// define('DB_HOST', 'localhost');
-// define('DB_NAME', 'vercorsfestival');
-// define('DB_USER', 'vercorsFestival');
-// define('DB_PWD', 'vercors');
-// define('PREFIXE', 'gest_');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'gestion_etudiant');
+define('DB_USER', 'gestion_etudiant');
+define('DB_PWD', 'retard');
+define('PREFIXE', 'gest_');
 
 // Ne pas toucher :
 

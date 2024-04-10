@@ -1,7 +1,7 @@
 <?php
 
 use src\Controllers\HomeController;
-// use src\Controllers\ReservationController;
+use src\Controllers\UtilisateurController;
 use src\Services\Routing;
 
 
@@ -18,7 +18,6 @@ $routeComposee = Routing::routeComposee($route);
     switch ($route) {
         case HOME_URL:
         if (isset($_SESSION['connecté'])) {
-            // header('location: '.HOME_URL.'dashboard');
             die;
             } else {
             $HomeController->index();

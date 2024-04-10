@@ -1,0 +1,26 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.section-accueil {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.contenair-connexion {
+    background-color: #F8F9FA;
+    width: 50%;
+    margin-top: 100px;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+
+
+
+

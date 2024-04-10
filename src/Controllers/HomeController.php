@@ -22,16 +22,16 @@ class HomeController
     // $this->render("formulaire");
   }
 
-//   public function auth(string $password): void
-//   {
-//     if ($password === 'vercors') {
-//       $_SESSION['connecté'] = TRUE;
-//       header('location: '.HOME_URL.'dashboard');
-//       die();
-//     } else {
-//       header('location: '.HOME_URL.'?erreur=connexion');
-//     }
-//   }
+  public function auth(string $password): void
+  {
+    if ($password === 'vercors') {
+      $_SESSION['connecté'] = TRUE;
+      header('location: '.HOME_URL.'dashboard');
+      die();
+    } else {
+      header('location: '.HOME_URL.'?erreur=connexion');
+    }
+  }
 
 //   public function quit()
 //   {
