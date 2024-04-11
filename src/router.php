@@ -1,28 +1,61 @@
 <?php
 
-use src\Controllers\HomeController;
-use src\Controllers\UtilisateurController;
-use src\Services\Routing;
-
-
-
-// $ReservationController = new ReservationController;
-$HomeController = new HomeController;
-
-$route = $_SERVER['REDIRECT_URL'];
+// // $uri = $_SERVER['REQUEST_URI'];
+$url = $_SERVER['REDIRECT_URL']; 
 $methode = $_SERVER['REQUEST_METHOD'];
 
-$routeComposee = Routing::routeComposee($route);
+$homeController = new HomeController();
+// // $reservationController = new ReservationController();
+// // $simplonController = new SimplonController();
+
+switch ($url) {
+    case HOME_URL:
+        $homeController->homepage();
+        break;
+//     // case HOME_URL . "/reservation":
+//     //     if ($methode == 'GET') {
+//     //         $reservationController->homepage();
+//     //     } else if ($methode == 'POST') {
+//     //         $reservationController->handleFormSubmission();
+//     //     }
+//     //     break;
+//     // case HOME_URL . "/simplon":
+//     //     if ($methode == 'GET') {
+//     //         $simplonController->homepage();
+//     //     } else if ($methode == 'POST') {
+//     //         $simplonController->create();
+//     //     }
+//     //     break;
+    default:
+        // $homeController->pageNotFound();
+        break;
+}
 
 
-    switch ($route) {
-        case HOME_URL:
-        if (isset($_SESSION['connecté'])) {
-            die;
-            } else {
-            $HomeController->index();
-            }
-            break;
+// use src\Controllers\HomeController;
+// use src\Controllers\UtilisateurController;
+// use src\Services\Routing;
+
+
+
+// // $ReservationController = new ReservationController;
+// $HomeController = new HomeController;
+
+// $route = $_SERVER['REDIRECT_URL']; 
+// $methode = $_SERVER['REQUEST_METHOD'];
+
+// $routeComposee = Routing::routeComposee($route);
+
+// // var_dump($url)
+
+//     switch ($route) {
+//         case HOME_URL:
+//         if (isset($_SESSION['connecté'])) {
+//             die;
+//             } else {
+//             $HomeController->index();
+//             }
+//             break;
 
         // case HOME_URL.'connexion':
           
@@ -55,10 +88,11 @@ $routeComposee = Routing::routeComposee($route);
         //     //       header('location: /dashboard');
         //     //       die;
 
-        default:
-    // $HomeController->page404();
-    break;
-}
+//         default:
+//     // $HomeController->page404();
+//     echo('404');
+//     break;
+// }
 
 
 // case HOME_URL.'test':
