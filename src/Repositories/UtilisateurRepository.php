@@ -18,29 +18,42 @@ class UtilisateurRepository
     require_once __DIR__ . '/../../config.php';
   }
 
+
+
+  public function verifierMailSiExist($mail) {
+    $sql = "SELECT * FROM gest_utilisateur WHERE mail= :mail";
+
+    $request = $this->DB->prepare($sql);
+
+    $request->execute(['mail' => $mail]);
+
+    return $request->fetchAll();
+
+}
+
   // Exemple d'une requête avec query :
   // il n'y a pas de risques, car aucun paramètre venant de l'extérieur n'est demandé dans le sql.
-//   public function getAllFilms()
-//   {
-//     $sql = "SELECT cine_films.ID, 
-//       cine_films.NOM, 
-//       cine_films.URL_AFFICHE, 
-//       cine_films.LIEN_TRAILER, 
-//       cine_films.RESUME, 
-//       cine_films.DUREE, 
-//       cine_films.DATE_SORTIE, 
-//       cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
-//       GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
-//       GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
-//       cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
-//     FROM cine_films
-//     LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
-//     LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
-//     INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
-//     GROUP BY cine_films.ID;";
+  // public function getAllFilms()
+  // {
+  //   $sql = "SELECT cine_films.ID, 
+  //     cine_films.NOM, 
+  //     cine_films.URL_AFFICHE, 
+  //     cine_films.LIEN_TRAILER, 
+  //     cine_films.RESUME, 
+  //     cine_films.DUREE, 
+  //     cine_films.DATE_SORTIE, 
+  //     cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
+  //     GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
+  //     GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
+  //     cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
+  //   FROM cine_films
+  //   LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
+  //   LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
+  //   INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
+  //   GROUP BY cine_films.ID;";
 
-//     return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Film::class);
-//   }
+  //   return  $this->DB->query($sql)->fetchAll(PDO::FETCH_CLASS, Film::class);
+  // }
 
 
   /**

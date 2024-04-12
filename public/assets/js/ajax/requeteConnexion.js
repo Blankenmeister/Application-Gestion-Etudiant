@@ -1,4 +1,8 @@
-function AjaxConnexion(event) {
+const btnConnexion = document.getElementById('btnConnexion');
+
+if (btnConnexion) {
+
+  function AjaxConnexion(event) {
     event.preventDefault();
     
       console.log('coucouJs');
@@ -9,12 +13,12 @@ function AjaxConnexion(event) {
         let mdpConnexion = document.getElementById('mdpConnexion').value;
         
      
-        let message = document.getElementById('message');
+        let reponseAccueil = document.getElementById('reponseAccueil');
         
-    
+        const url = "/";
         const requete = new XMLHttpRequest();
       
-        requete.open('POST', HOME_URL, true);
+        requete.open('POST', url, true);
         requete.setRequestHeader('content-Type', 'application/json'); 
       
         requete.send(JSON.stringify({
@@ -22,12 +26,21 @@ function AjaxConnexion(event) {
           mdpConnexion: mdpConnexion,
           }));
       
-        requete.onreadystatechange = function() {
+        requete.onreadystatechange = function() { 
       
           if (requete.readyState === 4 && requete.status === 200) {
-            message.innerHTML += JSON.parse(requete.responseText); 
-            // window.location.href = 'index.php';
+            reponseAccueil.innerHTML = '';
+            reponseAccueil.innerHTML = requete.responseText; 
+            // console.log(requete.responseText);
+          
           }
-          Header('location: ')
+          
         }
       }
+
+}
+
+
+
+// sonia.blanken@gmail.com
+// ecole

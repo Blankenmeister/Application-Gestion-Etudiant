@@ -9,23 +9,19 @@ $homeController = new HomeController();
 // // $simplonController = new SimplonController();
 
 switch ($url) {
+
     case HOME_URL:
-        $homeController->homepage();
+        if ($methode == 'GET') {
+            $homeController->homepage();
+        } else if ($methode === 'POST') {
+            $homeController->auth();
+        } else {
+            $homeController->homepage();
+        }
         break;
-//     // case HOME_URL . "/reservation":
-//     //     if ($methode == 'GET') {
-//     //         $reservationController->homepage();
-//     //     } else if ($methode == 'POST') {
-//     //         $reservationController->handleFormSubmission();
-//     //     }
-//     //     break;
-//     // case HOME_URL . "/simplon":
-//     //     if ($methode == 'GET') {
-//     //         $simplonController->homepage();
-//     //     } else if ($methode == 'POST') {
-//     //         $simplonController->create();
-//     //     }
-//     //     break;
+
+    
+
     default:
         // $homeController->pageNotFound();
         break;

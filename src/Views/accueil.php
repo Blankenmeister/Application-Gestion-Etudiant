@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  <div id='reponseAccueil'>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -23,7 +24,7 @@
         <button class="fw-bold btn" type="submit">Connexion</button>
     </div>
   </div>
-</nav>
+</nav>     
 </header>
 
 <div class='section-accueil'>
@@ -39,8 +40,9 @@
   <label for="formGroupExampleInput2" class="form-label">Mot de passe*</label>
   <input type="text" class="form-control" id="mdpConnexion" value="" placeholder="******">
 </div>
-<button type="button" class="m-5 fw-bold btn btn-primary" onclick="AjaxConnexion(event)">Connexion</button>
-<div id="message"></div>
+<button type="button" class="m-5 fw-bold btn btn-primary" id="btnConnexion" onclick="AjaxConnexion(event)">Connexion</button>
+
 </form>
+</div>
 </div>
 </div>

@@ -9,13 +9,57 @@ class HomeController
 
     public function homepage() {
       $this->render("accueil");
-        // echo ('page accueil');
+        
     }
 
     public function pageNotFound() {
         echo ('404');
     }
-}
+
+   
+    public function auth(): void
+    {
+
+        if (!empty(file_get_contents('php://input'))) {
+            $data = json_decode(file_get_contents('php://input'));
+
+        // $request = file_get_contents('php://input');
+        
+
+        // if ($request) {
+        //     $decodedRequest = json_decode($request);
+
+        //     if ($decodedRequest) {
+        //         $mailConnexion = htmlspecialchars($decodedRequest->mailConnexion);
+        //         $mdpConnexion = htmlspecialchars($decodedRequest->mdpConnexion);
+
+        if($data) {
+
+            $mailConnexion = htmlspecialchars($data->mailConnexion);
+            $mdpConnexion = htmlspecialchars($data->mdpConnexion);
+        
+
+
+                $utilisateurRepo = new UtilisateurRepository;
+
+                $utilisateurs = $utilisateurRepo->verifierMailSiExist($mailConnexion);
+                
+                var_dump($utilisateurs);
+
+                // header('Content-Type: application/json');
+                // echo($mailConnexion);
+                // echo($mdpConnexion);
+
+                include_once __DIR__ . '/../Views/ajax/pageCours.php';
+            }
+            }
+      
+      
+    }
+  }
+
+
+
 
 
 
