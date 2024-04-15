@@ -1,10 +1,12 @@
 <?php
 
-// namespace src\Repositories;
+namespace src\Repositories;
 
-// use src\Models\Utilisateur;
-// use PDO;
-// use src\Models\Database;
+use src\Models\Utilisateur;
+use PDO;
+use src\Models\Database;
+
+
 
 class UtilisateurRepository
 {
@@ -20,17 +22,23 @@ class UtilisateurRepository
 
 
 
-  public function verifierMailSiExist($mail) {
+  public function verifierMailSiExist($mail): Utilisateur {
     $sql = "SELECT * FROM gest_utilisateur WHERE mail= :mail";
 
     $request = $this->DB->prepare($sql);
 
-    $request->execute(['mail' => $mail]);
-
-    return $request->fetchAll();
+    $request->execute([':mail' => $mail]);
+    $request->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
+    return $request->fetch();
 
 }
 
+
+public function getThisUtilisateurByMail($mail): Utilisateur {
+  $sql = 
+
+
+}
 
 
 // Utiliser le userRepository pour vérifier que l'email reçu correspond 
@@ -172,28 +180,28 @@ class UtilisateurRepository
   /**
    * Permet de créer un nouveau film. Retourne l'objet film avec son Id fraîchement créé par la BDD.
    *
-   * @param Utilisateur $film
+   * @param Utilisateur 
    * @return Utilisateur
    */
-  // public function CreateThisUtilisateur(Utilisateur $utilisateur): Utilisateur
-  // {
-  //   $sql = "INSERT INTO " . PREFIXE . "utlisateur (NOM, PRENOM, , MAIL, MOT_DE_PASSE, COMPTE_ACTIVE) VALUES (:nom, :prenom, :mail, :motDePasse, :compteActive);";
+  public function CreateThisUtilisateur(Utilisateur $utilisateur): Utilisateur
+  {
+    $sql = "INSERT INTO " . PREFIXE . "utlisateur (NOM, PRENOM, , MAIL, MOT_DE_PASSE, COMPTE_ACTIVE) VALUES (:nom, :prenom, :mail, :motDePasse, :compteActive);";
 
-  //   $statement = $this->DB->prepare($sql);
+    $statement = $this->DB->prepare($sql);
 
-  //   $statement->execute([
-  //     ':nom'               => $utilisateur->getNom(),
-  //     ':url_affiche'       => $utilisateur->getPrenom(),
-  //     ':lien_trailer'      => $utilisateur->getMail(),
-  //     ':resume'            => $utilisateur->getMotDePasse(),
-  //     ':duree'             => $utilisateur->getCompteActive()
-  //   ]);
+    $statement->execute([
+      ':nom'          => $utilisateur->getNom(),
+      ':prenom'       => $utilisateur->getPrenom(),
+      ':mail'         => $utilisateur->getMail(),
+      ':motDePasse'   => $utilisateur->getMotDePasse(),
+      ':compteActive' => $utilisateur->getCompteActive()
+    ]);
 
-  //   $id = $this->DB->lastInsertId();
-  //   $utilisateur->setId($id);
+    $id = $this->DB->lastInsertId();
+    $utilisateur->setIdUtilisateur($id);
 
-  //   return $utilisateur;
-  // }
+    return $utilisateur;
+  }
 
   // Construire la méthode updateThisFilm()
 //   public function updateThisFilm(Film $film): bool

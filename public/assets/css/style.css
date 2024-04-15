@@ -18,8 +18,21 @@ h1 {
     text-align: center;
 }
 
+h5 {
+    margin-top: 30px;
+}
 
+.contenair-cours {
+    background-color: #F8F9FA;
+    padding: 25px 45px 25px 45px;
+    border-radius: 3px;
+    margin: 30px 15px 0px 15px; 
+}
 
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
 
 
 

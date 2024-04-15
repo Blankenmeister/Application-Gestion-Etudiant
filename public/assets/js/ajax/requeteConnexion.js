@@ -5,7 +5,7 @@ if (btnConnexion) {
   function AjaxConnexion(event) {
     event.preventDefault();
     
-      console.log('coucouJs');
+      // console.log('coucouJs');
     
     
     

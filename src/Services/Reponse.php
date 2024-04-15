@@ -1,5 +1,7 @@
 <?php
 
+namespace src\Services;
+
 trait Reponse
 {
     public function render($view, $data = null)

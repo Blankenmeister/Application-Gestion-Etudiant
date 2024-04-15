@@ -1,10 +1,10 @@
 <?php
 
-// namespace src\Controllers;
+namespace src\Controllers;
 
-// use src\Models\Utilisateur;
-// use src\Repositories\UtilisateurRepository;
-// use src\Services\Reponse;
+use src\Models\Utilisateur;
+use src\Repositories\UtilisateurRepository;
+use src\Services\Reponse;
 
 class UtilisateurController
 {

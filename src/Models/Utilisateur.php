@@ -2,16 +2,17 @@
 
 namespace src\Models;
 
-use DateTime;
 use src\Services\Hydratation;
 
 class Utilisateur {
-  private $Id; 
+  private $IdUtilisateur; 
   private $nom;
   private $prenom;
   private $mail;
   private $motDePasse; 
   private $compteActive;
+  private $IdRole;
+  private $IdPromotion;
 
   use Hydratation;
 
@@ -19,17 +20,17 @@ class Utilisateur {
   /**
    * Get the value of Id
    */
-  public function getId()
+  public function getIdUtilisateur()
   {
-    return $this->Id;
+    return $this->IdUtilisateur;
   }
 
   /**
    * Set the value of Id
    */
-  public function setId($Id): self
+  public function setIdUtilisateur($IdUtilisateur): self
   {
-    $this->Id = $Id;
+    $this->Id_utilisateur = $IdUtilisateur;
 
     return $this;
   }

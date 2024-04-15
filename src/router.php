@@ -1,5 +1,10 @@
 <?php
 
+
+use src\Controllers\HomeController;
+use src\Controllers\UtilisateurController;
+use src\Services\Routing;
+
 // // $uri = $_SERVER['REQUEST_URI'];
 $url = $_SERVER['REDIRECT_URL']; 
 $methode = $_SERVER['REQUEST_METHOD'];

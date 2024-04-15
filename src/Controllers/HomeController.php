@@ -1,7 +1,11 @@
 <?php
+namespace src\Controllers;
 
 
-require_once __DIR__ . '/../Services/Reponse.php';
+use src\Repositories\UtilisateurRepository;
+use src\Services\Reponse;
+
+// require_once __DIR__ . '/../Services/Reponse.php';
 
 class HomeController
 {
@@ -36,21 +40,16 @@ class HomeController
         if($data) {
 
             $mailConnexion = htmlspecialchars($data->mailConnexion);
-            $mdpConnexion = htmlspecialchars($data->mdpConnexion);
-        
+            $mdpConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
+            
 
+                $utilisateurRepo = new UtilisateurRepository;
 
-                // $utilisateurRepo = new UtilisateurRepository;
-
-                // $utilisateurs = $utilisateurRepo->verifierMailSiExist($mailConnexion);
+                $utilisateur = $utilisateurRepo->verifierMailSiExist($mailConnexion);
                 
-                // var_dump($utilisateurs);
+                var_dump($utilisateur);
 
-                // header('Content-Type: application/json');
-                // echo($mailConnexion);
-                // echo($mdpConnexion);
-
-                include_once __DIR__ . '/../Views/ajax/pageCours.php';
+                // include_once __DIR__ . '/../Views/ajax/pageCours.php';
             }
             }
       

@@ -13,6 +13,7 @@ trait Hydratation
   {
     $this->hydrate([$name => $value]);
   }
+  
 
   private function hydrate(array $data): void
   {
@@ -28,39 +29,25 @@ trait Hydratation
     }
   }
 
-//   private function hydrate(array $data): void
-// {
-//     foreach ($data as $key => $value) {
-//         $setter = "set";
-//         $parts = explode("_", $key);
-//         foreach ($parts as $part) {
-//             $part = ucfirst(strtolower($part));
-//             $setter .= $part;
-//             var_dump($setter);
-//         }
-//         if (method_exists($this, $setter)) {
-//             $this->$setter($value);
-//         }
-//     }
-// }
 
-//   public function __serialize(): array
-//   {
-//     $class = new \ReflectionClass(get_class($this));
 
-//     $ObjToArray = [];
-//     foreach ($class->getMethods(\ReflectionMethod::IS_PUBLIC) as $methode) {
-//       $nomMethode = $methode->getName();
-//       if (strpos($nomMethode, 'get') === 0) {
-//         // Vérifie si le nom de la méthode commence par 'get'
-//         $ObjToArray[$nomMethode] = $this->$nomMethode();
-//       }
-//     }
-//     return $ObjToArray;
-//   }
+  public function __serialize(): array
+  {
+    $class = new \ReflectionClass(get_class($this));
 
-//   public function __unserialize(array $data): void
-//   {
-//     $this->hydrate($data);
-//   }
+    $ObjToArray = [];
+    foreach ($class->getMethods(\ReflectionMethod::IS_PUBLIC) as $methode) {
+      $nomMethode = $methode->getName();
+      if (strpos($nomMethode, 'get') === 0) {
+        // Vérifie si le nom de la méthode commence par 'get'
+        $ObjToArray[$nomMethode] = $this->$nomMethode();
+      }
+    }
+    return $ObjToArray;
+  }
+
+  public function __unserialize(array $data): void
+  {
+    $this->hydrate($data);
+  }
 }

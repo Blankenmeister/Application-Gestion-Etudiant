@@ -28,7 +28,20 @@ include_once __DIR__ . '/../Includes/header.php';
 
   <h5 class="mx-3 mt-3">Cours du jour</h5>
 
+  <div class="contenair-cours">
 
+    <div class="flex">
+    <h3>DWMW3</h3>
+    <p class="date">01-01-2024</p>
+    </div>
+
+    <p>15 participants</p>
+    <p>Code*</p>
+    <input class="form-control" type="text" placeholder="...." aria-label="default input example">
+    <div class="d-grid d-md-flex justify-content-md-end">
+  <button class="my-4 btn btn-primary" type="button">Valider présence</button>
+</div>
+  </div>
 
   </div>
   <div class="tab-pane fade" id="promo" role="tabpanel" aria-labelledby="promo-tab">...</div>
