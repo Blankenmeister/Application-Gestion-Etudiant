@@ -40,11 +40,11 @@ class HomeController
         
 
 
-                $utilisateurRepo = new UtilisateurRepository;
+                // $utilisateurRepo = new UtilisateurRepository;
 
-                $utilisateurs = $utilisateurRepo->verifierMailSiExist($mailConnexion);
+                // $utilisateurs = $utilisateurRepo->verifierMailSiExist($mailConnexion);
                 
-                var_dump($utilisateurs);
+                // var_dump($utilisateurs);
 
                 // header('Content-Type: application/json');
                 // echo($mailConnexion);

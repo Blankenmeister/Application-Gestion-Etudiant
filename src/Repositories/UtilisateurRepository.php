@@ -31,6 +31,21 @@ class UtilisateurRepository
 
 }
 
+
+
+// Utiliser le userRepository pour vérifier que l'email reçu correspond 
+// bien à celui d'un utilisateur enregistré en bdd
+
+// // Si utilisateur présent en bdd, vérifier le mot de passe soumis 
+// et celui de stocké en bdd (password_verify). S'il l'email ne correspond à aucun utilisateur, on le laisse sur la page de connexion.
+
+// // Si les mots de passes correspondent, l'utilisateur est bien authentifié !
+//  Vous pouvez lui afficher le dashboard. Autrement, on le laisse sur 
+//  la page de connexion (avec une erreur idéalement)
+
+
+
+
   // Exemple d'une requête avec query :
   // il n'y a pas de risques, car aucun paramètre venant de l'extérieur n'est demandé dans le sql.
   // public function getAllFilms()
