@@ -30,7 +30,7 @@ class Utilisateur {
    */
   public function setIdUtilisateur($IdUtilisateur): self
   {
-    $this->Id_utilisateur = $IdUtilisateur;
+    $this->IdUtilisateur = $IdUtilisateur;
 
     return $this;
   }
@@ -124,4 +124,29 @@ class Utilisateur {
 
     return $this;
   }
+
+  public function getIdRole() {
+
+    return $this->IdRole;
+  }
+
+  /**
+   * Set the value of compteActive
+   */
+  public function setIdRole($IdRole): self
+  {
+    $this->IdRole = $IdRole;
+
+    return $this;
+  }
+
+  public function getIdPromotion() {
+    return $this->IdPromotion;
+  }
+
+  public function setIdPromotion($IdPromotion) {
+    $this->IdPromotion = $IdPromotion;
+    return $this;
+  }
+
 }

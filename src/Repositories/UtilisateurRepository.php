@@ -22,34 +22,35 @@ class UtilisateurRepository
 
 
 
-  public function verifierMailSiExist($mail): Utilisateur {
+  public function verifierMailSiExist($mailConnexion): Utilisateur
+  {
     $sql = "SELECT * FROM gest_utilisateur WHERE mail= :mail";
 
     $request = $this->DB->prepare($sql);
 
-    $request->execute([':mail' => $mail]);
+    $request->execute([':mail' => $mailConnexion]);
     $request->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
     return $request->fetch();
-
-}
-
-
-public function getThisUtilisateurByMail($mail): Utilisateur {
-  $sql = 
+  }
 
 
-}
+  // public function getThisUtilisateurByMail($mail): Utilisateur {
+  //   $sql = 
 
 
-// Utiliser le userRepository pour vérifier que l'email reçu correspond 
-// bien à celui d'un utilisateur enregistré en bdd
+  // }
 
-// // Si utilisateur présent en bdd, vérifier le mot de passe soumis 
-// et celui de stocké en bdd (password_verify). S'il l'email ne correspond à aucun utilisateur, on le laisse sur la page de connexion.
 
-// // Si les mots de passes correspondent, l'utilisateur est bien authentifié !
-//  Vous pouvez lui afficher le dashboard. Autrement, on le laisse sur 
-//  la page de connexion (avec une erreur idéalement)
+  // Utiliser le userRepository pour vérifier que l'email reçu correspond 
+  // bien à celui d'un utilisateur enregistré en bdd
+
+  // // Si utilisateur présent en bdd, vérifier le mot de passe soumis 
+  // et celui de stocké en bdd (password_verify). S'il l'email ne correspond à aucun utilisateur, 
+  // on le laisse sur la page de connexion.
+
+  // // Si les mots de passes correspondent, l'utilisateur est bien authentifié !
+  //  Vous pouvez lui afficher le dashboard. Autrement, on le laisse sur 
+  //  la page de connexion (avec une erreur idéalement)
 
 
 
@@ -90,92 +91,92 @@ public function getThisUtilisateurByMail($mail): Utilisateur {
    * Pour éviter des injections on prépare (on désamorce) la requête.
    */
 
-//   public function getThisUtilisateurById($id): Utilisateur
-//   {
-    // $sql = "SELECT cine_films.ID, 
-    //   cine_films.NOM, 
-    //   cine_films.URL_AFFICHE, 
-    //   cine_films.LIEN_TRAILER, 
-    //   cine_films.RESUME, 
-    //   cine_films.DUREE, 
-    //   cine_films.DATE_SORTIE, 
-    //   cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
-    //   GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
-    //   GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
-    //   cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
-    // FROM cine_films
-    // LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
-    // LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
-    // INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
-    // WHERE cine_films.ID = :id
-    // GROUP BY cine_films.ID";
+  //   public function getThisUtilisateurById($id): Utilisateur
+  //   {
+  // $sql = "SELECT cine_films.ID, 
+  //   cine_films.NOM, 
+  //   cine_films.URL_AFFICHE, 
+  //   cine_films.LIEN_TRAILER, 
+  //   cine_films.RESUME, 
+  //   cine_films.DUREE, 
+  //   cine_films.DATE_SORTIE, 
+  //   cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
+  //   GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
+  //   GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
+  //   cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
+  // FROM cine_films
+  // LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
+  // LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
+  // INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
+  // WHERE cine_films.ID = :id
+  // GROUP BY cine_films.ID";
 
-//     $statement = $this->DB->prepare($sql);
-//     $statement->bindParam(':id', $id);
-//     $statement->execute();
-//     $statement->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-//     return $statement->fetch();
-//   }
+  //     $statement = $this->DB->prepare($sql);
+  //     $statement->bindParam(':id', $id);
+  //     $statement->execute();
+  //     $statement->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
+  //     return $statement->fetch();
+  //   }
 
   /**
    * Un autre exemple d'une requête préparée, avec prepare et execute :
    * Cette fois-ci on donne les paramètres tout de suite lors du execute, sous forme d'un tableau associatif.
    */
-//   public function getThoseFilmsByClassificationAge($Id_Classification): array
-//   {
-//     $sql = "SELECT cine_films.ID, 
-//       cine_films.NOM, 
-//       cine_films.URL_AFFICHE, 
-//       cine_films.LIEN_TRAILER, 
-//       cine_films.RESUME, 
-//       cine_films.DUREE, 
-//       cine_films.DATE_SORTIE, 
-//       cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
-//       GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
-//       GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
-//       cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
-//     FROM cine_films
-//     LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
-//     LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
-//     INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
-//     WHERE cine_films.ID_CLASSIFICATION_AGE_PUBLIC = :Id_Classification
-//     GROUP BY cine_films.ID";
+  //   public function getThoseFilmsByClassificationAge($Id_Classification): array
+  //   {
+  //     $sql = "SELECT cine_films.ID, 
+  //       cine_films.NOM, 
+  //       cine_films.URL_AFFICHE, 
+  //       cine_films.LIEN_TRAILER, 
+  //       cine_films.RESUME, 
+  //       cine_films.DUREE, 
+  //       cine_films.DATE_SORTIE, 
+  //       cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
+  //       GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
+  //       GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
+  //       cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
+  //     FROM cine_films
+  //     LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
+  //     LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
+  //     INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
+  //     WHERE cine_films.ID_CLASSIFICATION_AGE_PUBLIC = :Id_Classification
+  //     GROUP BY cine_films.ID";
 
-//     $statement = $this->DB->prepare($sql);
+  //     $statement = $this->DB->prepare($sql);
 
-//     $statement->execute([':Id_Classification' => $Id_Classification]);
+  //     $statement->execute([':Id_Classification' => $Id_Classification]);
 
-//     return $statement->fetchAll(PDO::FETCH_CLASS, Film::class);
-//   }
+  //     return $statement->fetchAll(PDO::FETCH_CLASS, Film::class);
+  //   }
 
 
   // Construire la méthode getThoseFilmsByName() Et oui, parce qu'on peut avoir plusieurs films avec le même nom !
-//   public function getThoseUtilisateurByName($NOM): array
-//   {
-    // $sql = "SELECT cine_films.ID, 
-    //   cine_films.NOM, 
-    //   cine_films.URL_AFFICHE, 
-    //   cine_films.LIEN_TRAILER, 
-    //   cine_films.RESUME, 
-    //   cine_films.DUREE, 
-    //   cine_films.DATE_SORTIE, 
-    //   cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
-    //   GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
-    //   GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
-    //   cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
-    // FROM cine_films
-    // LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
-    // LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
-    // INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
-    // WHERE cine_films.NOM LIKE :NOM
-    // GROUP BY cine_films.ID;";
+  //   public function getThoseUtilisateurByName($NOM): array
+  //   {
+  // $sql = "SELECT cine_films.ID, 
+  //   cine_films.NOM, 
+  //   cine_films.URL_AFFICHE, 
+  //   cine_films.LIEN_TRAILER, 
+  //   cine_films.RESUME, 
+  //   cine_films.DUREE, 
+  //   cine_films.DATE_SORTIE, 
+  //   cine_films.ID_CLASSIFICATION_AGE_PUBLIC AS ID_CLASSIFICATION, 
+  //   GROUP_CONCAT(cine_categories.NOM) AS NOMS_CATEGORIES, 
+  //   GROUP_CONCAT(cine_categories.ID) AS ID_CATEGORIES, 
+  //   cine_classification_age_public.INTITULE as NOM_CLASSIFICATION 
+  // FROM cine_films
+  // LEFT JOIN cine_relations_films_categories ON cine_films.ID = cine_relations_films_categories.ID_FILMS 
+  // LEFT JOIN cine_categories ON cine_relations_films_categories.ID_CATEGORIES = cine_categories.ID
+  // INNER JOIN cine_classification_age_public ON cine_films.ID_CLASSIFICATION_AGE_PUBLIC = cine_classification_age_public.ID
+  // WHERE cine_films.NOM LIKE :NOM
+  // GROUP BY cine_films.ID;";
 
-    // $statement = $this->DB->prepare($sql);
+  // $statement = $this->DB->prepare($sql);
 
-//     $statement->execute([':NOM' => "%" . $NOM . "%"]);
+  //     $statement->execute([':NOM' => "%" . $NOM . "%"]);
 
-//     return $statement->fetchAll(PDO::FETCH_CLASS, Utilisateur::class);
-//   }
+  //     return $statement->fetchAll(PDO::FETCH_CLASS, Utilisateur::class);
+  //   }
 
   /**
    * Permet de créer un nouveau film. Retourne l'objet film avec son Id fraîchement créé par la BDD.
@@ -204,67 +205,67 @@ public function getThisUtilisateurByMail($mail): Utilisateur {
   }
 
   // Construire la méthode updateThisFilm()
-//   public function updateThisFilm(Film $film): bool
-//   {
-//     $sql = "UPDATE " . PREFIXE . "films 
-//             SET NOM = :nom, 
-//                 URL_AFFICHE = :url_affiche, 
-//                 LIEN_TRAILER = :lien_trailer, 
-//                 RESUME = :resume, 
-//                 DUREE = :duree, 
-//                 DATE_SORTIE = :date_sortie, 
-//                 ID_CLASSIFICATION_AGE_PUBLIC = :id_classification 
-//             WHERE ID = :id;";
+  //   public function updateThisFilm(Film $film): bool
+  //   {
+  //     $sql = "UPDATE " . PREFIXE . "films 
+  //             SET NOM = :nom, 
+  //                 URL_AFFICHE = :url_affiche, 
+  //                 LIEN_TRAILER = :lien_trailer, 
+  //                 RESUME = :resume, 
+  //                 DUREE = :duree, 
+  //                 DATE_SORTIE = :date_sortie, 
+  //                 ID_CLASSIFICATION_AGE_PUBLIC = :id_classification 
+  //             WHERE ID = :id;";
 
-//     $statement = $this->DB->prepare($sql);
+  //     $statement = $this->DB->prepare($sql);
 
-//     $success = $statement->execute([
-//       ':id'                => $film->getId(),
-//       ':nom'               => $film->getNom(),
-//       ':url_affiche'       => $film->getUrlAffiche(),
-//       ':lien_trailer'      => $film->getLienTrailer(),
-//       ':resume'            => $film->getResume(),
-//       ':duree'             => $film->getDuree(),
-//       ':date_sortie'       => $film->getDateSortie(),
-//       ':id_classification' => $film->getIdClassification()
-//     ]);
+  //     $success = $statement->execute([
+  //       ':id'                => $film->getId(),
+  //       ':nom'               => $film->getNom(),
+  //       ':url_affiche'       => $film->getUrlAffiche(),
+  //       ':lien_trailer'      => $film->getLienTrailer(),
+  //       ':resume'            => $film->getResume(),
+  //       ':duree'             => $film->getDuree(),
+  //       ':date_sortie'       => $film->getDateSortie(),
+  //       ':id_classification' => $film->getIdClassification()
+  //     ]);
 
-//     return $success;
-//   }
+  //     return $success;
+  //   }
 
-//   // Construire la méthode deleteThisFilm()
-//   public function deleteThisFilm($Id): bool
-//   {
-//     $sql = "DELETE FROM " . PREFIXE . "relations_films_categories WHERE ID_FILMS = :Id;
-//             DELETE FROM " . PREFIXE . "projections WHERE ID_FILMS = :Id;
-//             DELETE FROM " . PREFIXE . "films WHERE ID = :Id";
+  //   // Construire la méthode deleteThisFilm()
+  //   public function deleteThisFilm($Id): bool
+  //   {
+  //     $sql = "DELETE FROM " . PREFIXE . "relations_films_categories WHERE ID_FILMS = :Id;
+  //             DELETE FROM " . PREFIXE . "projections WHERE ID_FILMS = :Id;
+  //             DELETE FROM " . PREFIXE . "films WHERE ID = :Id";
 
-//     $statement = $this->DB->prepare($sql);
+  //     $statement = $this->DB->prepare($sql);
 
-//     return $statement->execute([':Id' => $Id]);
-//   }
+  //     return $statement->execute([':Id' => $Id]);
+  //   }
 
-//   public function addFilmToCategories(Film $film): bool
-//   {
-//     $sql = "INSERT INTO " . PREFIXE . "relations_films_categories (ID_CATEGORIES, ID_FILMS) VALUES (:id_category0, :id_film)";
-//     for ($i = 1; $i < sizeof($film->getIdCategories()); $i++) {
-//       $sql .= ", (:id_category$i, :id_film)";
-//     }
-//     $sql .= ";";
-//     $statement = $this->DB->prepare($sql);
-//     $variables = [":id_film" => $film->getId()];
+  //   public function addFilmToCategories(Film $film): bool
+  //   {
+  //     $sql = "INSERT INTO " . PREFIXE . "relations_films_categories (ID_CATEGORIES, ID_FILMS) VALUES (:id_category0, :id_film)";
+  //     for ($i = 1; $i < sizeof($film->getIdCategories()); $i++) {
+  //       $sql .= ", (:id_category$i, :id_film)";
+  //     }
+  //     $sql .= ";";
+  //     $statement = $this->DB->prepare($sql);
+  //     $variables = [":id_film" => $film->getId()];
 
-//     for ($i = 0; $i < sizeof($film->getIdCategories()); $i++) {
-//       $variables[":id_category$i"] = $film->getIdCategories()[$i];
-//     }
+  //     for ($i = 0; $i < sizeof($film->getIdCategories()); $i++) {
+  //       $variables[":id_category$i"] = $film->getIdCategories()[$i];
+  //     }
 
-//     return $statement->execute($variables);
-//   }
+  //     return $statement->execute($variables);
+  //   }
 
-//   public function removeFilmToCategories(Film $film): bool
-//   {
-//     $sql = "DELETE FROM ". PREFIXE . "relations_films_categories WHERE ID_FILMS = :id_film";
-//     $statement = $this->DB->prepare($sql);
-//     return $statement->execute([":id_film" => $film->getId()]);
-//   }
+  //   public function removeFilmToCategories(Film $film): bool
+  //   {
+  //     $sql = "DELETE FROM ". PREFIXE . "relations_films_categories WHERE ID_FILMS = :id_film";
+  //     $statement = $this->DB->prepare($sql);
+  //     return $statement->execute([":id_film" => $film->getId()]);
+  //   }
 }

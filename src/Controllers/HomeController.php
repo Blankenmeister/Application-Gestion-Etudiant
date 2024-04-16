@@ -1,4 +1,5 @@
 <?php
+
 namespace src\Controllers;
 
 
@@ -11,51 +12,59 @@ class HomeController
 {
     use Reponse;
 
-    public function homepage() {
-      $this->render("accueil");
-        
+    public function homepage()
+    {
+        $this->render("accueil");
     }
 
-    public function pageNotFound() {
+    public function pageNotFound()
+    {
         echo ('404');
     }
 
-   
+
     public function auth(): void
     {
 
         if (!empty(file_get_contents('php://input'))) {
             $data = json_decode(file_get_contents('php://input'));
 
-        // $request = file_get_contents('php://input');
-        
+            if ($data) {
 
-        // if ($request) {
-        //     $decodedRequest = json_decode($request);
+                $mailConnexion = htmlspecialchars($data->mailConnexion);
 
-        //     if ($decodedRequest) {
-        //         $mailConnexion = htmlspecialchars($decodedRequest->mailConnexion);
-        //         $mdpConnexion = htmlspecialchars($decodedRequest->mdpConnexion);
+                $mdpConnexion = $data->mdpConnexion;
+                $mdpHashConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
 
-        if($data) {
-
-            $mailConnexion = htmlspecialchars($data->mailConnexion);
-            $mdpConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
-            
 
                 $utilisateurRepo = new UtilisateurRepository;
 
                 $utilisateur = $utilisateurRepo->verifierMailSiExist($mailConnexion);
-                
-                var_dump($utilisateur);
 
-                // include_once __DIR__ . '/../Views/ajax/pageCours.php';
+                // var_dump($utilisateur);
+                // var_dump($mdpConnexion);
+
+
+                if ($utilisateur) {
+                    // L'utilisateur existe, vérification du mot de passe
+                    if (password_verify($mdpConnexion, $mdpHashConnexion)) {
+                        $_SESSION['connecté'] = TRUE;
+                        // Le mot de passe est correct
+                        // echo "Connexion réussie!";
+                        include_once __DIR__ . '/../Views/ajax/pageCoursEtudiant.php';
+                        die();
+                    } else {
+
+                        echo "Mot de passe incorrect!";
+                    }
+                } else {
+                    // Aucun utilisateur trouvé avec cet e-mail
+                    echo "Aucun utilisateur trouvé avec cet email!";
+                }
             }
-            }
-      
-      
+        }
     }
-  }
+}
 
 
 

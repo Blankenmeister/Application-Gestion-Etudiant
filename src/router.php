@@ -6,7 +6,7 @@ use src\Controllers\UtilisateurController;
 use src\Services\Routing;
 
 // // $uri = $_SERVER['REQUEST_URI'];
-$url = $_SERVER['REDIRECT_URL']; 
+$url = $_SERVER['REDIRECT_URL'];
 $methode = $_SERVER['REQUEST_METHOD'];
 
 $homeController = new HomeController();
@@ -25,7 +25,7 @@ switch ($url) {
         }
         break;
 
-    
+
 
     default:
         // $homeController->pageNotFound();

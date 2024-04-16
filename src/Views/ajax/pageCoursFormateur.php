@@ -39,7 +39,7 @@ include_once __DIR__ . '/../Includes/header.php';
     <p>Code*</p>
     <input class="form-control" type="text" placeholder="...." aria-label="default input example">
     <div class="d-grid d-md-flex justify-content-md-end">
-  <button class="my-4 btn btn-primary" type="button">Valider présence</button>
+  <button class="my-4 btn btn-primary" id='btnValiderPresence' type="button">Valider présence</button>
 </div>
   </div>
 
