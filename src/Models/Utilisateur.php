@@ -12,6 +12,7 @@ class Utilisateur {
   private $motDePasse; 
   private $compteActive;
   private $IdRole;
+  private $NomRole;
   private $IdPromotion;
 
   use Hydratation;
@@ -137,6 +138,15 @@ class Utilisateur {
   {
     $this->IdRole = $IdRole;
 
+    return $this;
+  }
+
+  public function getNomRole() {
+    return $this->NomRole;
+  }
+
+  public function setNameRole($NomRole) {
+    $this->NomRole = $NomRole;
     return $this;
   }
 

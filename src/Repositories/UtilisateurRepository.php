@@ -22,15 +22,22 @@ class UtilisateurRepository
 
 
 
-  public function verifierMailSiExist($mailConnexion): Utilisateur
+  public function recupererUtilisateurParEmail($mailConnexion): Utilisateur
   {
-    $sql = "SELECT * FROM gest_utilisateur WHERE mail= :mail";
+    $sql = "SELECT *, gest_role.nom AS NameRole FROM gest_utilisateur 
+            LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role
+            WHERE mail= :mail";
 
     $request = $this->DB->prepare($sql);
 
     $request->execute([':mail' => $mailConnexion]);
     $request->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-    return $request->fetch();
+    $row =  $request->fetch();
+    if (!$row ) {
+      return false;
+    } 
+    return $row;
+
   }
 
 

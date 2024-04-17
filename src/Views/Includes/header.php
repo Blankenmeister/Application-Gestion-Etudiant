@@ -21,6 +21,12 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">SIMPLON</a>
+          <?php
+          if ($_SESSION['connecté'] = TRUE && !empty($_SESSION['prenom'])) {
+
+            echo $_SESSION['prenom'];
+          }
+          ?>
           <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="fw-bold btn" type="submit">Connexion</button>
     </div> -->

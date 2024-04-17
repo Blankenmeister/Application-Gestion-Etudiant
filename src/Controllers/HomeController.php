@@ -34,22 +34,26 @@ class HomeController
                 $mailConnexion = htmlspecialchars($data->mailConnexion);
 
                 $mdpConnexion = $data->mdpConnexion;
-                $mdpHashConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
+                // $mdpHashConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
 
 
                 $utilisateurRepo = new UtilisateurRepository;
 
-                $utilisateur = $utilisateurRepo->verifierMailSiExist($mailConnexion);
+                $utilisateurBDD = $utilisateurRepo->recupererUtilisateurParEmail($mailConnexion);
 
                 // var_dump($utilisateur);
-                // var_dump($mdpConnexion);
+                // var_dump($mdpHashConnexion);
+                var_dump($utilisateurBDD);
+                // var_dump($mdpHashBDD->getMotDePasse());
 
-
-                if ($utilisateur) {
+                if ($utilisateurBDD) {
                     // L'utilisateur existe, vérification du mot de passe
-                    if (password_verify($mdpConnexion, $mdpHashConnexion)) {
+                    if (password_verify($mdpConnexion, $utilisateurBDD->getMotDePasse())) {
                         $_SESSION['connecté'] = TRUE;
+                        $_SESSION['role'] = $utilisateurBDD->getNomRole();
+                        $_SESSION['prenom'] = $utilisateurBDD->getPrenom();
                         // Le mot de passe est correct
+                        echo $_SESSION['role'];
                         // echo "Connexion réussie!";
                         include_once __DIR__ . '/../Views/ajax/pageCoursEtudiant.php';
                         die();
