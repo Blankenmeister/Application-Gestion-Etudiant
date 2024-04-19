@@ -1,5 +1,5 @@
-
-
+const btnDeconnexion = document.getElementById("btnDeconnexion");
+btnDeconnexion.style.display = 'none';
 
 const btnConnexion = document.getElementById("btnConnexion");
 
