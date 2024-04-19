@@ -46,17 +46,18 @@ final class Database
       // Télécharger le(s) fichier(s) sql d'initialisation dans la BDD
       // Et effectuer les différentes migrations
       try {
-        $i = 0;
-        $migrationExistante = TRUE;
-        while ($migrationExistante === TRUE) {
-          $migration = __DIR__ . "/../Migration/gestion_etudiant$i.sql";
+        // $i = 0;
+        // $migrationExistante = TRUE;
+        // while ($migrationExistante === TRUE) {
+        //   $migration = __DIR__ . "/../Migration/gestion_etudiant$i.sql";
+          $migration = __DIR__ . "/../Migration/my_webapp__6.sql";
           if (file_exists($migration)) {
             $sql = file_get_contents($migration);
             $this->DB->query($sql);
-            $i++;
+            // $i++;
           } else {
-            $migrationExistante = FALSE;
-          }
+          //   $migrationExistante = FALSE;
+          // }
         }
 
         // Mettre à jour le fichier config.php

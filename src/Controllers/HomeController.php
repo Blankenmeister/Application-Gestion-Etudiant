@@ -42,33 +42,39 @@ class HomeController
                 $utilisateurBDD = $utilisateurRepo->recupererUtilisateurParEmail($mailConnexion);
 
                 // var_dump($utilisateur);
-                // var_dump($mdpHashConnexion);
-                var_dump($utilisateurBDD);
-                // var_dump($mdpHashBDD->getMotDePasse());
+                // var_dump($mdpHashConnexion); 
+
+                // var_dump($utilisateurBDD);
+                // recupération en objet
+                // var_dump($utilisateurBDD->getNom());
 
                 if ($utilisateurBDD) {
                     // L'utilisateur existe, vérification du mot de passe
                     if (password_verify($mdpConnexion, $utilisateurBDD->getMotDePasse())) {
-                        $_SESSION['connecté'] = TRUE;
+                        // Si le mot de passe est correct, on initialise la session
+                        $_SESSION['connecté'] = true;
                         $_SESSION['role'] = $utilisateurBDD->getNomRole();
-                        $_SESSION['prenom'] = $utilisateurBDD->getPrenom();
-                        // Le mot de passe est correct
-                        echo $_SESSION['role'];
-                        // echo "Connexion réussie!";
-                        include_once __DIR__ . '/../Views/ajax/pageCoursEtudiant.php';
-                        die();
-                    } else {
 
+                        // Redirection selon le rôle
+                        if ($_SESSION['role'] === "etudiant") {
+                            include_once __DIR__ . '/../Views/ajax/pageCoursEtudiant.php';
+                        } else {
+                            include_once __DIR__ . '/../Views/ajax/pageCoursFormateur.php';
+                        }
+                        exit(); // Utilisez exit pour être sûr que le script s'arrête après l'include
+                    } else {
+                        // Mot de passe incorrect
                         echo "Mot de passe incorrect!";
                     }
                 } else {
-                    // Aucun utilisateur trouvé avec cet e-mail
+                    // Aucun utilisateur trouvé avec cet email
                     echo "Aucun utilisateur trouvé avec cet email!";
                 }
             }
         }
     }
 }
+
 
 
 

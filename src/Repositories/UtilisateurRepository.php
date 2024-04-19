@@ -22,11 +22,26 @@ class UtilisateurRepository
 
 
 
-  public function recupererUtilisateurParEmail($mailConnexion): Utilisateur
+  public function recupererUtilisateurParEmail($mailConnexion)
   {
-    $sql = "SELECT *, gest_role.nom AS NameRole FROM gest_utilisateur 
-            LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role
-            WHERE mail= :mail";
+    //  = "SELECT * , gest_role.nom AS NomRole FROM gest_utilisateur 
+    //         LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role
+    //         WHERE mail= :mail";
+    // $sql = "SELECT * , gest_role.nom AS NameRole FROM gest_utilisateur 
+    //         LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role
+    //         WHERE gest_utilisateur.mail = :mail;";
+
+
+    $sql = "SELECT gest_utilisateur.id_utilisateur, 
+    gest_utilisateur.nom,
+    gest_utilisateur.prenom,
+    gest_utilisateur.mail, 
+    gest_utilisateur.mot_de_passe, 
+    gest_utilisateur.compte_active, 
+    gest_role.nom AS NameRole,
+    gest_role.id_role AS IdRole FROM gest_utilisateur
+    LEFT JOIN gest_role ON gest_utilisateur.id_role = gest_role.id_role 
+    WHERE gest_utilisateur.mail = :mail;";
 
     $request = $this->DB->prepare($sql);
 
@@ -41,11 +56,7 @@ class UtilisateurRepository
   }
 
 
-  // public function getThisUtilisateurByMail($mail): Utilisateur {
-  //   $sql = 
 
-
-  // }
 
 
   // Utiliser le userRepository pour vérifier que l'email reçu correspond 

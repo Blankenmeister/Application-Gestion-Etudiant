@@ -1,18 +1,10 @@
-<!-- <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Promotions</a>
-  </li>
-</ul> -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SIMPLON</a>
-    <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="fw-bold btn" type="submit">Connexion</button>
-    </div> -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="fw-bold btn" type="submit">Déconnexion</button>
+    </div>
   </div>
 </nav>
 
@@ -28,11 +20,11 @@
       <div class="contenair-cours">
         <div class="flex">
           <h3>DWMW3</h3>
-          <p class="date">01-01-2024</p>
+          <p class="date"><?php echo date ('d-m-Y') ?></p>
         </div>
         <p>15 participants</p>
         <p>Code*</p>
-        <input class="form-control" type="text" placeholder="...." aria-label="default input example">
+        <input class="form-control" type="text" placeholder="Entrer code" aria-label="default input example">
         <div class="d-grid d-md-flex justify-content-md-end">
           <button class="my-4 btn btn-primary" id='btnValiderPresence' type="button">Valider présence</button>
         </div>
@@ -53,11 +45,11 @@
       <div class="contenair-cours">
         <div class="flex">
           <h3>DWMW3</h3>
-          <p class="date">01-01-2024</p>
+          <p class="date"><?php echo date ('d-m-Y') ?></p>
         </div>
         <p>15 participants</p>
         <p>Code*</p>
-        <input class="form-control" type="text" placeholder="...." aria-label="default input example">
+        <input class="form-control" type="text" placeholder="" aria-label="default input example">
         <div class="d-grid d-md-flex justify-content-md-end">
           <button class="my-4 btn btn-secondary" id='btnSignatureRecueillie' type="button">Signature Recueillie</button>
         </div>

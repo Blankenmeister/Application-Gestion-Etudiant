@@ -34,6 +34,15 @@ h5 {
     justify-content: space-between;
 }
 
+.flexCode {
+    display: flex;
+    justify-content: end;
+}
+.code {
+    font-size: 32px;
+    font-weight: 700;
+}
+
 
 
 

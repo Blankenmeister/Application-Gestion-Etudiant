@@ -1,3 +1,6 @@
+
+
+
 const btnConnexion = document.getElementById("btnConnexion");
 
 if (btnConnexion) {
@@ -11,7 +14,7 @@ if (btnConnexion) {
 
     let reponseAccueil = document.getElementById("reponseAccueil");
 
-    const url = "/";
+    const url = HOME_URL;
     // const url = "/Etudiant"; si redirection vers la page cours etudiant
     const requete = new XMLHttpRequest();
 
