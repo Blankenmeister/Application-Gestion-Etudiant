@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace src\Models;
 
@@ -50,12 +50,12 @@ final class Database
         // $migrationExistante = TRUE;
         // while ($migrationExistante === TRUE) {
         //   $migration = __DIR__ . "/../Migration/gestion_etudiant$i.sql";
-          $migration = __DIR__ . "/../Migration/my_webapp__6.sql";
-          if (file_exists($migration)) {
-            $sql = file_get_contents($migration);
-            $this->DB->query($sql);
-            // $i++;
-          } else {
+        $migration = __DIR__ . "/../Migration/my_webapp__6.sql";
+        if (file_exists($migration)) {
+          $sql = file_get_contents($migration);
+          $this->DB->query($sql);
+          // $i++;
+        } else {
           //   $migrationExistante = FALSE;
           // }
         }

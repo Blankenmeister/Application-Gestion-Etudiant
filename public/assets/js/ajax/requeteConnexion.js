@@ -41,6 +41,3 @@ if (btnConnexion) {
     };
   }
 }
-
-// sonia.blanken@gmail.com
-// ecole

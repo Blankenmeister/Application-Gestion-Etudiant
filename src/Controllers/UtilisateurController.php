@@ -9,15 +9,11 @@ use src\Services\Reponse;
 class UtilisateurController
 {
   private $UtilisateurRepo;
-  
+
   use Reponse;
 
   public function __construct()
   {
     $this->UtilisateurRepo = new UtilisateurRepository();
   }
-
-
-
 }
-

@@ -4,12 +4,13 @@ namespace src\Models;
 
 use src\Services\Hydratation;
 
-class Utilisateur {
-  private $IdUtilisateur; 
+class Utilisateur
+{
+  private $IdUtilisateur;
   private $nom;
   private $prenom;
   private $mail;
-  private $motDePasse; 
+  private $motDePasse;
   private $compteActive;
   private $IdRole;
   private $NomRole;
@@ -17,7 +18,7 @@ class Utilisateur {
 
   use Hydratation;
 
-  
+
   /**
    * Get the value of Id
    */
@@ -126,7 +127,8 @@ class Utilisateur {
     return $this;
   }
 
-  public function getIdRole() {
+  public function getIdRole()
+  {
 
     return $this->IdRole;
   }
@@ -141,22 +143,25 @@ class Utilisateur {
     return $this;
   }
 
-  public function getNomRole() {
+  public function getNomRole()
+  {
     return $this->NomRole;
   }
 
-  public function setNameRole($NomRole) {
+  public function setNameRole($NomRole)
+  {
     $this->NomRole = $NomRole;
     return $this;
   }
 
-  public function getIdPromotion() {
+  public function getIdPromotion()
+  {
     return $this->IdPromotion;
   }
 
-  public function setIdPromotion($IdPromotion) {
+  public function setIdPromotion($IdPromotion)
+  {
     $this->IdPromotion = $IdPromotion;
     return $this;
   }
-
 }

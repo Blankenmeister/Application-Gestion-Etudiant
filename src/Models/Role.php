@@ -4,11 +4,12 @@ namespace src\Models;
 
 use src\Services\Hydratation;
 
-class Utilisateur {
-    private $IdRole; 
+class Utilisateur
+{
+    private $IdRole;
     private $nom;
-  
-use Hydratation;
+
+    use Hydratation;
 
 
     /**

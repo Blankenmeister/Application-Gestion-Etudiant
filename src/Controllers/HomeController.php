@@ -20,7 +20,7 @@ class HomeController
     }
 
 
-    
+
     public function auth(): void
     {
         if (!empty(file_get_contents('php://input'))) {
@@ -46,7 +46,7 @@ class HomeController
                         } else {
                             include_once __DIR__ . '/../Views/ajax/pageCoursFormateur.php';
                         }
-                        exit(); 
+                        exit();
                     } else {
                         echo "Mot de passe incorrect!";
                     }
@@ -58,65 +58,3 @@ class HomeController
     }
 }
 
-
-  // var_dump($utilisateur);
-                // var_dump($mdpHashConnexion); 
-
-                // var_dump($utilisateurBDD);
-                // recupération en objet
-                // var_dump($utilisateurBDD->getNom());
-
-
-
-
-
-
-// Theophile
-// namespace src\Controllers;
-
-// use src\Services\Reponse;
-
-// class HomeController
-// {
-
-//   use Reponse;
-
-//   public function index(): void
-
-  
-//   {
-//     if (isset($_GET['erreur'])) {
-//       $erreur = htmlspecialchars($_GET['erreur']);
-//     } else {
-//       $erreur = '';
-//     }
-// // include(__DIR__. '/Views/formulaire'); render c'est pareil 
-//     $this->render("accueil", ["erreur"=> $erreur]);
-
-//     // $this->render("formulaire");
-//   }
-
-//   public function auth(string $password): void
-//   {
-//     if ($password === 'vercors') {
-//       $_SESSION['connecté'] = TRUE;
-//       header('location: '.HOME_URL.'dashboard');
-//       die();
-//     } else {
-//       header('location: '.HOME_URL.'?erreur=connexion');
-//     }
-//   }
-
-//   public function quit()
-//   {
-//     session_destroy();
-//     header('location: '.HOME_URL);
-//     die();
-//   }
-
-//   public function page404(): void
-//   {    
-//     header("HTTP/1.1 404 Not Found");
-//     $this->render('404');
-//   }
-// }

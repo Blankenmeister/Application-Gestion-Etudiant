@@ -13,7 +13,7 @@ trait Hydratation
   {
     $this->hydrate([$name => $value]);
   }
-  
+
 
   private function hydrate(array $data): void
   {
@@ -28,7 +28,6 @@ trait Hydratation
       $this->$setter($value);
     }
   }
-
 
 
   public function __serialize(): array

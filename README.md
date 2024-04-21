@@ -6,7 +6,7 @@ On vous a demandé de créer une application de gestion des élèves, qui permet
 les absences et les retards.   
 Le cahier des charges et les maquettes vous sont fournies.  
 L'application devra être fonctionnelle  
-et mise en ligne en fin de brief, pour faire une démo à Simplon.
+et mise en ligne en fin de brief, pour faire une démo.
 
 
 **En tant que developpeur full stack, pour arriver au bout de ce gros contrat, vous devrez:**  
@@ -23,7 +23,7 @@ Donner une documentation de déploiement et de suivi de projet
 
 ### INSTALLATION  
 **Le fichier config se trouve à la racine du projet.**  
-Lors de l'installation en production, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données. 
+Lors de l'installation en production, veuillez renseigner dans le fichier config-exemple.php les bonnes informations relatives à la base de données. 
 
 
 ### MIGRATION

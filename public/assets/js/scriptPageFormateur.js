@@ -1,15 +1,12 @@
+const sectValiderPres = document.getElementById("ValiderPres");
+const sectSignEnCours = document.getElementById("SignEnCours");
 
-const sectValiderPres = document.getElementById('ValiderPres');
-const sectSignEnCours = document.getElementById('SignEnCours');
+sectSignEnCours.style.display = "none";
 
-sectSignEnCours.style.display = 'none';
+sectValiderPres.addEventListener("click", () => {
+  sectValiderPres.style.display = "none";
+  sectSignEnCours.style.display = "block";
+});
 
-sectValiderPres.addEventListener('click', () => {
-    sectValiderPres.style.display = 'none';
-    sectSignEnCours.style.display = 'block';
-})
-
-const homeTab = document.getElementById('homeTab');
-const promotionTab = document.getElementById('promotionTab');
-
-
+const homeTab = document.getElementById("homeTab");
+const promotionTab = document.getElementById("promotionTab");

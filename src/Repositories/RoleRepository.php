@@ -6,8 +6,6 @@ use src\Models\Database;
 use src\Models\Role;
 
 
-
-
 class RoleRepository
 {
   private $DB;
@@ -19,7 +17,4 @@ class RoleRepository
 
     require_once __DIR__ . '/../../config.php';
   }
-
-
 }
-

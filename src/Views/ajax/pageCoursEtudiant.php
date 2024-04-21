@@ -1,9 +1,8 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?= HOME_URL ?>">SIMPLON</a>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="fw-bold btn" type="submit">Déconnexion</button>
+      <button class="fw-bold btn" type="submit">Déconnexion</button>
     </div>
   </div>
 </nav>
@@ -20,7 +19,7 @@
       <div class="contenair-cours">
         <div class="flex">
           <h3>DWMW3</h3>
-          <p class="date"><?php echo date ('d-m-Y') ?></p>
+          <p class="date"><?php echo date('d-m-Y') ?></p>
         </div>
         <p>15 participants</p>
         <p>Code*</p>
@@ -45,7 +44,7 @@
       <div class="contenair-cours">
         <div class="flex">
           <h3>DWMW3</h3>
-          <p class="date"><?php echo date ('d-m-Y') ?></p>
+          <p class="date"><?php echo date('d-m-Y') ?></p>
         </div>
         <p>15 participants</p>
         <p>Code*</p>
