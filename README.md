@@ -22,7 +22,7 @@ Donner une documentation de déploiement et de suivi de projet
 ​
 
 ### INSTALLATION  
-**Le fichier config se trouve à la racine du projet.**  
+**Le fichier config-exemple.php se trouve à la racine du projet.**  
 Lors de l'installation en production, veuillez renseigner dans le fichier config-exemple.php les bonnes informations relatives à la base de données. 
 
 
