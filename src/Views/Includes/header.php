@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="assets/js/ajax/requeteConnexion.js" defer></script>
+  <script src="./assets/js/ajax/requeteConnexion.js" defer></script>
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
 <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">SIMPLON</a>
+          <a class="navbar-brand" href="<?= HOME_URL ?>">SIMPLON</a>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="fw-bold btn" id="btnDeconnexion" type="submit">Déconnexion</button>
           </div>

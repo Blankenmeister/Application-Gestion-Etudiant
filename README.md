@@ -4,7 +4,8 @@
 Simplon cherche à s'émanciper des solutions externes utilisées pour ses services.  
 On vous a demandé de créer une application de gestion des élèves, qui permettra de gérer  
 les absences et les retards.   
-Le cahier des charges et les maquettes vous sont fournies. L'application devra être fonctionnelle  
+Le cahier des charges et les maquettes vous sont fournies.  
+L'application devra être fonctionnelle  
 et mise en ligne en fin de brief, pour faire une démo à Simplon.
 
 
@@ -22,9 +23,8 @@ Donner une documentation de déploiement et de suivi de projet
 
 ### INSTALLATION  
 **Le fichier config se trouve à la racine du projet.**  
-Lors de l'installation en production, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données si vous utiliser la BDD en local. 
+Lors de l'installation en production, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données. 
 
-Il se trouve aussi en commentaires ou vise/versa les informations de la BDD pour le serveur simplon.
 
 ### MIGRATION
 Le fichier script SQL est stocké dans le dossier Migration.

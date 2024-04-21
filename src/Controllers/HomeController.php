@@ -2,11 +2,8 @@
 
 namespace src\Controllers;
 
-
 use src\Repositories\UtilisateurRepository;
 use src\Services\Reponse;
-
-// require_once __DIR__ . '/../Services/Reponse.php';
 
 class HomeController
 {
@@ -23,35 +20,23 @@ class HomeController
     }
 
 
+    
     public function auth(): void
     {
-
         if (!empty(file_get_contents('php://input'))) {
             $data = json_decode(file_get_contents('php://input'));
 
             if ($data) {
-
                 $mailConnexion = htmlspecialchars($data->mailConnexion);
-
                 $mdpConnexion = $data->mdpConnexion;
                 // $mdpHashConnexion = password_hash($data->mdpConnexion, PASSWORD_DEFAULT);
-
-
                 $utilisateurRepo = new UtilisateurRepository;
-
                 $utilisateurBDD = $utilisateurRepo->recupererUtilisateurParEmail($mailConnexion);
 
-                // var_dump($utilisateur);
-                // var_dump($mdpHashConnexion); 
-
-                // var_dump($utilisateurBDD);
-                // recupération en objet
-                // var_dump($utilisateurBDD->getNom());
-
                 if ($utilisateurBDD) {
-                    // L'utilisateur existe, vérification du mot de passe
+                    // L'utilisateur existe, vérification du mot de passe entré par l'utilisateur et celui en BDD
                     if (password_verify($mdpConnexion, $utilisateurBDD->getMotDePasse())) {
-                        // Si le mot de passe est correct, on initialise la session
+                        // Si le mot de passe est correct, initialisation de la session
                         $_SESSION['connecté'] = true;
                         $_SESSION['role'] = $utilisateurBDD->getNomRole();
 
@@ -61,13 +46,11 @@ class HomeController
                         } else {
                             include_once __DIR__ . '/../Views/ajax/pageCoursFormateur.php';
                         }
-                        exit(); // Utilisez exit pour être sûr que le script s'arrête après l'include
+                        exit(); 
                     } else {
-                        // Mot de passe incorrect
                         echo "Mot de passe incorrect!";
                     }
                 } else {
-                    // Aucun utilisateur trouvé avec cet email
                     echo "Aucun utilisateur trouvé avec cet email!";
                 }
             }
@@ -76,7 +59,12 @@ class HomeController
 }
 
 
+  // var_dump($utilisateur);
+                // var_dump($mdpHashConnexion); 
 
+                // var_dump($utilisateurBDD);
+                // recupération en objet
+                // var_dump($utilisateurBDD->getNom());
 
 
 

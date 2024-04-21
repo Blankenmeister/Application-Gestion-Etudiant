@@ -1,5 +1,5 @@
 const btnDeconnexion = document.getElementById("btnDeconnexion");
-btnDeconnexion.style.display = 'none';
+btnDeconnexion.style.display = "none";
 
 const btnConnexion = document.getElementById("btnConnexion");
 
@@ -7,15 +7,12 @@ if (btnConnexion) {
   function AjaxConnexion(event) {
     event.preventDefault();
 
-    // console.log('coucouJs');
-
     let mailConnexion = document.getElementById("mailConnexion").value;
     let mdpConnexion = document.getElementById("mdpConnexion").value;
 
     let reponseAccueil = document.getElementById("reponseAccueil");
 
     const url = HOME_URL;
-    // const url = "/Etudiant"; si redirection vers la page cours etudiant
     const requete = new XMLHttpRequest();
 
     requete.open("POST", url, true);
@@ -27,7 +24,6 @@ if (btnConnexion) {
         mdpConnexion: mdpConnexion,
       })
     );
-
     requete.onreadystatechange = function () {
       if (requete.readyState === 4 && requete.status === 200) {
         reponseAccueil.innerHTML = requete.responseText;
@@ -42,7 +38,7 @@ if (btnConnexion) {
           reponseAccueil.appendChild(script);
         }
       }
-    }
+    };
   }
 }
 
