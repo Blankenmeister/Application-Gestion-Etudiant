@@ -23,7 +23,24 @@ Donner une documentation de déploiement et de suivi de projet
 
 ### INSTALLATION  
 **Le fichier config-exemple.php se trouve à la racine du projet.**  
-Lors de l'installation en production, veuillez renseigner dans le fichier config-exemple.php les bonnes informations relatives à la base de données. 
+Lors de l'installation en production,  
+veuillez renseigner le fichier config-exemple.php avec les bonnes informations relatives à la base de données.  
+Renommez-le en config.php.
+
+
+Voici à quoi correspond les champs : 
+
+DB_HOST: L'adresse de l'hôte de la base de données.
+DB_NAME: Le nom de la base de données.
+DB_USER: Le nom d'utilisateur pour se connecter à la base de données.
+DB_PWD: Le mot de passe pour se connecter à la base de données.
+HOME_URL: L'url de la page d'accueil.
+
+
+1 Cloner ce dépôt : git clone https://github.com/Blankenmeister/Application-Gestion-Etudiant
+2 Créer une base de données MySQL avec le fichier simplonsign.sql dans le dossier migration
+3 Remplir les informations de configuration dans le fichier config.php.
+4 Lancer le serveur PHP (local via wamp)
 
 
 ### MIGRATION
