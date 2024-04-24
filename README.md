@@ -29,7 +29,7 @@ relatives à la base de données.
 Renommez-le en config.php.
 
 
-**Voici à quoi correspond les champs :** 
+**Voici à quoi correspond les champs :**   
 DB_HOST: L'adresse de l'hôte de la base de données.  
 DB_NAME: Le nom de la base de données.  
 DB_USER: Le nom d'utilisateur pour se connecter à la base de données.  
